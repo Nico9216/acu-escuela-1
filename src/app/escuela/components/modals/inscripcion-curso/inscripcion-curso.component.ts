@@ -433,7 +433,7 @@ export class InscripcionCursoComponent implements OnInit, OnDestroy {
                   this.escCurTe1Field.value,
                   this.escCurTe2Field.value,
                   this.escCurTe3Field.value,
-                  'wsPDFPlanDeClases'
+                  'wsPDFPlanDeClasesHasta5Clases'
                 )
                 .subscribe((pdf) => {
                   openSamePDF(pdf, 'PlanDeClases');

@@ -66,17 +66,31 @@ export class PlanDeClasesExtendidoComponent implements OnInit {
     });
   }
 
-  generarReporte(event) {
-    this.reportesService
-      .getPDFPlanDeClases(
-        { AluId: this.aluId },
-        null,
-        null,
-        null,
-        'wsPDFPlanDeClasesExtendido'
-      )
-      .subscribe((pdf: any) => {
-        openSamePDF(pdf, 'PlanDeClasesExtendido');
-      });
+  generarReporte(event, action: string) {
+    if (action == 'completo') {
+      this.reportesService
+        .getPDFPlanDeClases(
+          { AluId: this.aluId },
+          null,
+          null,
+          null,
+          'wsPDFPlanDeClasesExtendido'
+        )
+        .subscribe((pdf: any) => {
+          openSamePDF(pdf, 'PlanDeClasesExtendido');
+        });
+    } else {
+      this.reportesService
+        .getPDFPlanDeClases(
+          { AluId: this.aluId },
+          null,
+          null,
+          null,
+          'wsPDFPlanDeClasesExtendidoHasta5Clases'
+        )
+        .subscribe((pdf: any) => {
+          openSamePDF(pdf, 'PlanDeClasesExtendido');
+        });
+    }
   }
 }

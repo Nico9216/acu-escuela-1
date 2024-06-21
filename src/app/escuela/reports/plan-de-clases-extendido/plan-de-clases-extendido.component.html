@@ -47,19 +47,28 @@
                 </div>
               </div>
             </div>
-
           </mat-dialog-content>
 
-          <mat-dialog-actions >
+          <mat-dialog-actions>
             <button
               mat-raised-button
               type="button"
-              (click)="generarReporte($event)"
+              (click)="generarReporte($event, 'completo')"
               cdkFocusInitial
               [disabled]="form.invalid"
               color="primary"
             >
-              Generar Reporte
+              Generar Reporte Completo
+            </button>
+            <button
+              mat-raised-button
+              type="button"
+              (click)="generarReporte($event, 'parcial')"
+              cdkFocusInitial
+              [disabled]="form.invalid"
+              color="primary"
+            >
+              Generar Reporte Parcial
             </button>
           </mat-dialog-actions>
         </mat-card>

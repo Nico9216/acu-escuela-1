@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
   //url_ws: 'http://192.1.0.86:80/ACUWS_EscuelaConduccionACUProd/rest',
-  //url_ws: 'http://192.1.0.86:80/ACUWS_EscuelaConduccionACUProd/rest',
-  url_ws: 'http://192.1.33.1/ACU-EscuelaConduccion-Backend/rest',
+  url_ws: 'http://192.1.0.86:80/ACUWS_EscuelaConduccionACUProd/rest',
+  //url_ws: 'http://192.1.33.1/ACU-EscuelaConduccion-Backend/rest',
 
   url_Backend_Charp: 'https://localhost:44380/api',
   //url_Backend_Charp: 'http://192.1.33.1/BackendEscuelaCsharp/api',

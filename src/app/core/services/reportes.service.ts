@@ -71,7 +71,8 @@ export class ReportesService {
     escCurTe1?: string,
     escCurTe2?: string,
     escCurTe3?: symbol,
-    path = 'wsPDFPlanDeClases'
+    //path = 'wsPDFPlanDeClases'
+    path = 'wsPDFPlanDeClasesHasta5Clases'
   ) {
     const headers = new HttpHeaders();
     headers.set('Aceppt', 'application/pdf;');
