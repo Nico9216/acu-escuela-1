@@ -156,12 +156,11 @@
                           <mat-datepicker #picker></mat-datepicker>
 
                           <mat-error
-                          *ngIf="aluFchNac.hasError('required')"
+                            *ngIf="aluFchNacField.hasError('required')"
                           >
-                          Fecha de nacimiento es
-                          <strong>requerido</strong>.
+                            Fecha de nacimiento es
+                            <strong>requerido</strong>.
                           </mat-error>
-
                         </mat-form-field>
                       </div>
                     </div>
@@ -372,9 +371,7 @@
                                   />
                                   <mat-hint align="end"
                                     >Cant. de carácteres:
-                                    {{
-                                      contactoParentescoAlumno.value.length
-                                    }}
+                                    {{ contactoParentescoAlumno.value.length }}
                                     / 15
                                   </mat-hint>
                                 </mat-form-field>
