@@ -3,6 +3,7 @@ export const environment = {
   url_ws: 'http://192.1.33.1/ACU-EscuelaConduccion-Backend/rest',
   url_Backend_Charp: 'http://192.1.33.1/BackendEscuelaCsharp/api',
   apiFormularios: 'http://192.1.33.1/ACU-Formularios-Backend-Prod/api', //'http://192.1.0.86/FormularioTest/api', //http://192.1.33.1/ACU-Formularios-Backend-Prod/api',
+  url_Oracle: 'http://192.1.33.1:87/Oracle/',
   pageSize: 100,
 };
 
