@@ -24,6 +24,7 @@ import { CuentaCorrienteComponent } from './pages/cuenta-corriente/cuenta-corrie
 import { GestionFormulariosComponent } from './pages/gestion-formularios/gestion-formularios.component';
 import { GestionNotificacionesComponent } from './pages/gestion-notificaciones/gestion-notificaciones.component';
 import { AgendaInstructorRapidaComponent } from './components/agenda-instructor-rapida/agenda-instructor-rapida.component';
+import { SocioComponent } from './components/socio/socio.component';
 
 const routes: Routes = [
   {
@@ -117,6 +118,10 @@ const routes: Routes = [
       {
         path: 'gestion-estado-alumno',
         component: GestionEstadoAlumnoComponent,
+      },
+      {
+        path: 'socios',
+        component: SocioComponent,
       },
     ],
     canActivateChild: [AutenticacionGuard],

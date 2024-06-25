@@ -261,6 +261,12 @@ export class AcuService {
     return this.http.get(url);
   }
 
+  getBuscarSocio(nro: number, tipo: string) {
+    return this.http.get(
+      `${environment.url_Oracle}api/Socio/BuscarSocio?nro=${nro}&tipo=${tipo}`
+    );
+  }
+
   getFacturasPendientes(socId: number) {
     return this.http.get(
       `${environment.url_ws}/wsGetCuotasSociales?SocId=${socId}`

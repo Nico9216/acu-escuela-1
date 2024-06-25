@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center w-100" style="margin-top: 25px">
+  <form
+    class="row w-50 mt-4 justify-content-center text-center"
+    [formGroup]="formBusquedaSoc"
+    (ngSubmit)="buscar()"
+  >
+    <h4 class="w-100">La cédula NO debe tener el dígito verificador</h4>
+
+    <mat-form-field class="w-50">
+      <input
+        matInput
+        onkeypress="return /[0-9]/i.test(event.key)"
+        formControlName="numero"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="w-25" style="margin-left: 20px">
+      <mat-label>Busqueda por</mat-label>
+      <mat-select formControlName="tipoBusqueda">
+        <mat-option *ngFor="let t of tipoBusqueda" [value]="t"
+          >{{ t }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="row w-50 mt-4">
+      <button
+        mat-raised-button
+        type="button"
+        (click)="buscar()"
+        cdkFocusInitial
+        color="primary"
+        class="w-100"
+      >
+        Buscar
+      </button>
+    </div>
+  </form>
+</div>
+
+<div class="d-flex justify-content-center w-100" style="margin-top: 25px">
+  <div class="w-50 text-center">
+    <p [ngClass]="{ customError: errorC, exito: !errorC }">{{ mensaje }}</p>
+  </div>
+</div>

@@ -205,7 +205,7 @@ export class GenerarNuevoPlanClasesComponent implements OnInit {
                       null,
                       null,
                       null,
-                      'wsPDFPlanDeClases'
+                      'wsPDFPlanDeClasesHasta5Clases'
                     )
                     .subscribe((pdf) => {
                       openSamePDF(pdf, 'PlanDeClases');
