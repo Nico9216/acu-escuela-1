@@ -166,6 +166,8 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
     });
 
     t.afterDismissed().subscribe(({ seleccionoOpcion, params }) => {
+      const liberadoCancelado = params ? params.liberarCancelado : null;
+
       if (seleccionoOpcion) {
         const abrirAgenda = localStorage.getItem('abrirAgenda');
 
@@ -217,7 +219,7 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
               );
             }
 
-            if (refreshAgenda) {
+            if (refreshAgenda && !liberadoCancelado) {
               const classOld = localStorage.getItem('classOld');
               const textOld = localStorage.getItem('textOld');
 

@@ -68,18 +68,21 @@ export class SeleccionarAccionAgendaComponent {
     const mainParameters = JSON.parse(localStorage.getItem('mainParameters'));
 
     localStorage.removeItem('abrirAgenda');
-    let continuar = true;
+    let continuar = false;
     switch (key) {
       case 'abrir-clase':
         localStorage.setItem('abrirAgenda', tipoAgenda);
+        continuar = true;
         break;
 
       case 'examen-clase':
         localStorage.setItem('abrirAgenda', `examen-${tipoAgenda}`);
+        continuar = true;
         break;
 
       case 'clase-adicional':
         localStorage.setItem('abrirAgenda', `clase-adicional-${tipoAgenda}`);
+        continuar = true;
         break;
 
       case 'evaluacion-practica':
@@ -87,10 +90,12 @@ export class SeleccionarAccionAgendaComponent {
           'abrirAgenda',
           `evaluacion-practica-${tipoAgenda}`
         );
+        continuar = true;
         break;
 
       case 'suspender-clase':
         //localStorage.setItem('abrirAgenda', `suspender-${tipoAgenda}`);
+
         const nroAlumno = mainParameters.text.slice(1, 6);
         const age: AltaAgeInst = {
           Aluid: 0,
@@ -114,16 +119,17 @@ export class SeleccionarAccionAgendaComponent {
           /* Read more about isConfirmed, isDenied below */
           if (result.isConfirmed) {
             this.acuService.bajaAgendaInst(age).subscribe((resp) => {
+              this.cerrarBottomSheet(true, event);
               Swal.fire({
                 title: 'Excelente!',
                 text: resp,
                 icon: 'success',
                 timer: 2000,
                 showConfirmButton: false,
-              }).then(() => {
-                window.location.reload();
               });
             });
+          } else {
+            this.cerrarBottomSheet(true, event, { liberarCancelado: true });
           }
         });
 
@@ -131,7 +137,7 @@ export class SeleccionarAccionAgendaComponent {
 
       case 'teorico-clase':
         //localStorage.setItem('abrirAgenda', `suspender-${tipoAgenda}`);
-
+        continuar = true;
         const age2: AltaAgeInst = {
           Aluid: 0,
           Tipcurid: 0,
@@ -171,6 +177,7 @@ export class SeleccionarAccionAgendaComponent {
 
       case 'duplicar-clase':
         localStorage.setItem('abrirAgenda', `duplicar-${tipoAgenda}`);
+        continuar = true;
         break;
 
       case 'mover-clase':
@@ -191,6 +198,7 @@ export class SeleccionarAccionAgendaComponent {
         );
 
         this.setPegarStorage();
+        continuar = true;
         break;
 
       case 'pegar-clase':
@@ -220,10 +228,12 @@ export class SeleccionarAccionAgendaComponent {
       case 'cancelar':
         this.setPegarStorage();
         localStorage.setItem('abrirAgenda', `pegar-clase-ok`);
+        continuar = true;
         break;
 
       default:
         this.acuService.cleanStorageAgenda();
+        continuar = true;
         break;
     }
 
