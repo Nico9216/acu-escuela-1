@@ -124,6 +124,14 @@ export class ReportesService {
       }
     );
 
+  getReporteResultadoExamenes = () =>
+    this.http.get(
+      `${environment.url_Backend_Charp}/ResultadoExamenPractico/ResultadoExamenPractico`,
+      {
+        responseType: 'text',
+      }
+    );
+
   obtenerAlumnosCon10ClasesOmas = () =>
     this.http.post(`${environment.url_ws}/wsReporteCantClasesPorAlumno`, {});
 

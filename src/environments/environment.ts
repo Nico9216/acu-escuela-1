@@ -9,7 +9,7 @@ export const environment = {
   //url_ws: 'http://192.1.33.1/ACU-EscuelaConduccion-Backend/rest',
 
   url_Backend_Charp: 'https://localhost:44380/api',
-  url_Oracle: 'http://192.1.33.1:87/Oracle/',
+  url_Oracle: 'http://192.1.33.1:76/Oracle/',
 
   //url_Backend_Charp: 'http://192.1.33.1/BackendEscuelaCsharp/api',
 
