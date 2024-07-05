@@ -81,13 +81,7 @@ export class PlanDeClasesExtendidoComponent implements OnInit {
         });
     } else {
       this.reportesService
-        .getPDFPlanDeClases(
-          { AluId: this.aluId },
-          null,
-          null,
-          null,
-          'wsPDFPlanDeClasesExtendidoHasta5Clases'
-        )
+        .getPDFPlanDeClasesExtendido5({ AluId: this.aluId }, false)
         .subscribe((pdf: any) => {
           openSamePDF(pdf, 'PlanDeClasesExtendido');
         });

@@ -93,6 +93,7 @@ import { GestionEstadoAlumnoComponent } from './components/gestion-estado-alumno
 import { ClasesHastaExamenComponent } from './reports/clases-hasta-examen/clases-hasta-examen.component';
 import { CatidadClasesPorInstructorComponent } from './reports/catidad-clases-por-instructor/catidad-clases-por-instructor.component';
 import { SocioComponent } from './components/socio/socio.component';
+import { ListarClasesEntregadasComponent } from './components/listar-clases-entregadas/listar-clases-entregadas.component';
 
 registerLocaleData(localeEsUy, 'es-UY');
 registerLocaleData(localeEs, 'es');
@@ -167,6 +168,7 @@ registerLocaleData(localeEs, 'es');
     GestionEstadoAlumnoComponent,
     ClasesHastaExamenComponent,
     CatidadClasesPorInstructorComponent,
+    ListarClasesEntregadasComponent,
   ],
   imports: [
     CommonModule,

@@ -92,6 +92,28 @@ export class ReportesService {
     );
   }
 
+  getPDFPlanDeClasesExtendido5(
+    planDeClase: ClaseEstimada,
+    entregado?: boolean,
+    //path = 'wsPDFPlanDeClases'
+    path = 'wsPDFPlanDeClasesExtendidoHasta5Clases'
+  ) {
+    const headers = new HttpHeaders();
+    headers.set('Aceppt', 'application/pdf;');
+
+    return this.http.post(
+      `${environment.url_ws}/${path}`,
+      {
+        PlanDeClase: { ...planDeClase, UsrId: this.authService.getUserId() },
+        entregado,
+      },
+      {
+        headers,
+        responseType: 'blob' as 'json',
+      }
+    );
+  }
+
   facturasPorAlumno = (aluId) =>
     this.http.post(`${environment.url_ws}/reporteFacturasPorAlumno`, {
       aluId,
