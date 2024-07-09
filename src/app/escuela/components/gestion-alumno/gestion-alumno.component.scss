@@ -12,10 +12,10 @@ table {
     width: 100%;
 }
 
-td,
-th {
-    width: 25%;
-}
+//td,
+//th {
+//    width: 25%;
+//}
 
 
 
@@ -27,6 +27,10 @@ th {
     background: #1976d2;
 }
 
+.tooltip-green {
+    background: #0ac325;
+}
+
 
 
 .button-eliminar {
@@ -36,6 +40,11 @@ th {
 
 .button-editar {
     background-color: #1976d2;
+    color: white;
+}
+
+.button-mostrar {
+    background-color: #0ac325;
     color: white;
 }
 

@@ -10,6 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { InscripcionesAlumnoComponent } from '../modals/inscripciones-alumno/inscripciones-alumno.component';
 import { AgendaClase } from '../../../core/model/agenda-clase.model';
 import { environment } from '../../../../environments/environment';
+import { ListarClasesEntregadasComponent } from '../listar-clases-entregadas/listar-clases-entregadas.component';
 
 @Component({
   selector: 'app-gestion-alumno',
@@ -117,7 +118,19 @@ export class GestionAlumnoComponent implements OnInit {
             );
           });
         break;
-
+      case 'SHOW':
+        //this.alumnoService.GetClasesEntregadasPorAlumno(alumno.AluId);
+        this.dialog.open(
+          ListarClasesEntregadasComponent,
+          {
+            height: 'auto',
+            width: '700px',
+            data: {
+              alumno
+            },
+          }
+        );
+      break;
       default:
         break;
     }
