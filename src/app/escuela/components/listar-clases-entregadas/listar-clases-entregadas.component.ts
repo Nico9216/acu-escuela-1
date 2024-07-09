@@ -7,15 +7,10 @@ import { AlumnoService } from '@core/services/alumno.service';
 @Component({
   selector: 'app-listar-clases-entregadas',
   templateUrl: './listar-clases-entregadas.component.html',
-  styleUrls: ['./listar-clases-entregadas.component.scss']
+  styleUrls: ['./listar-clases-entregadas.component.scss'],
 })
 export class ListarClasesEntregadasComponent implements OnInit {
-
-  displayedColumns: string[] = [
-    'AluNumero',
-    'Clase',
-    'Fecha'
-  ]
+  displayedColumns: string[] = ['aluNro', 'clase', 'fecha'];
 
   dataSource: MatTableDataSource<ListarClasesEntregadas>;
 
@@ -23,16 +18,14 @@ export class ListarClasesEntregadasComponent implements OnInit {
     private alumnoService: AlumnoService,
     private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) { }
-
+  ) {}
 
   ngOnInit(): void {
-    
-    this.alumnoService.GetClasesEntregadasPorAlumno(this.data.alumno.AluId).subscribe((resp: any) => {
-      this.dataSource = resp
-      console.log(resp)
-    })
-
+    this.alumnoService
+      .GetClasesEntregadasPorAlumno(this.data.alumno.AluId)
+      .subscribe((resp: any) => {
+        this.dataSource = resp;
+        console.log(resp);
+      });
   }
-
 }
