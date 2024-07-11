@@ -186,4 +186,8 @@ export class AlumnoService {
       ALUID: aluId,
     });
   }
+
+  GetClasesEntregadasPorAlumno(aluId: number){
+    return this.http.get(`${environment.url_Backend_Charp}/Alumno/GetClasesEntregadasPorAlumno?AluId=${aluId}`);
+  }
 }

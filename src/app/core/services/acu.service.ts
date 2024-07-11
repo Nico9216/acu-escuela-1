@@ -190,17 +190,17 @@ export class AcuService {
   liberarClase(params: LiberarParameters) {
     return this.http.post(
       `${environment.url_ws}/wsLiberarClase`,
-      {
-        FchClase: params.fechaClase,
-        HorClase: params.horaClase,
-        Movil: params.movil,
-        EscInsId: params.escInsId,
-        usrId: params.usrId,
-        esMovil: params.esMovil,
-      },
-      this.httpOptions
-    );
-  }
+    {
+      FchClase: params.fechaClase,
+      HorClase: params.horaClase,
+      Movil: params.movil,
+      EscInsId: params.escInsId,
+      usrId: params.usrId,
+      esMovil: params.esMovil,
+    },
+    this.httpOptions
+  );
+}
 
   getItems() {
     return this.http.get(`${environment.url_ws}/wsGetItems`);

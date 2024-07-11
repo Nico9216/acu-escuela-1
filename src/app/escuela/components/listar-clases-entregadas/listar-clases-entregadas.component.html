@@ -1,1 +1,21 @@
 <p>listar-clases-entregadas works!</p>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="aluNro">
+    <th mat-header-cell *matHeaderCellDef>Nº Alumno</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.aluNro }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="clase">
+    <th mat-header-cell *matHeaderCellDef>clase</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.clase }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef>Fecha</th>
+    <td mat-cell *matCellDef="let alumno">{{ alumno.fecha }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let alumno; columns: displayedColumns"></tr>
+</table>
