@@ -123,7 +123,7 @@ export class GestionAlumnoComponent implements OnInit {
         this.dialog.open(
           ListarClasesEntregadasComponent,
           {
-            height: 'auto',
+            maxHeight: '70vh',
             width: '700px',
             data: {
               alumno
