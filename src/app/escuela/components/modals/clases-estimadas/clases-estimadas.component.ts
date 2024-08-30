@@ -74,6 +74,7 @@ export class ClasesEstimadasComponent implements OnInit {
         });
     } else {
       //Cuando es desde regenrar un plan de clases
+
       this.instructorService
         .getDisponibilidadInstructoresPorCantidad(
           this.data.inscripcion,
@@ -81,6 +82,7 @@ export class ClasesEstimadasComponent implements OnInit {
           this.data.cantidad
         )
         .subscribe((data: any) => {
+          console.log(data.ClasesEstimadas[0]);
           this.reportesService
             .getPDFPlanDeClases(data.ClasesEstimadas[0])
             .subscribe((pdf: any) => {

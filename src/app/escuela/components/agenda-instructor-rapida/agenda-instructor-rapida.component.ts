@@ -37,7 +37,8 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
   name: string;
   sabadoODomingo: number;
   verAgenda: boolean;
-
+  instructorSeleccionado: any;
+  instructoresSelect: any[];
   hoy = new Date();
   agendaDisplayedColumns: string[];
   columns: string[] = [];
@@ -64,6 +65,7 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.fecha = new Date();
     this.selectedSede = localStorage.getItem('selectedSede');
+    this.getInstructores();
     this.getAgenda(this.fecha);
   }
   ngOnDestroy(): void {
@@ -602,13 +604,17 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
   getAgenda(fecha: Date) {
     this.verAgenda = false;
     const strFecha = this.formatDateToString(fecha);
-    const filtro = this.selectedSede;
+    const filtro = this.instructorSeleccionado?.EscInsId
+      ? this.instructorSeleccionado?.EscInsId
+      : 'Todas';
+
     const load1$ = this.acuService
       .getAgendaPorFecha(strFecha, 'rapida', filtro)
       .subscribe((res: any) => {
         this.agenda = res.TablaAgenda;
         this.instructores = res.TablaAgenda.Instructores;
         this.horas = res.TablaAgenda.Horas;
+
         this.fechaClase = res.TablaAgenda.FechaClase;
         this.columns = this.horas.map((item) => item.Hora.toString());
         this.horaMovilPlano = res.TablaAgenda.HoraMovilPlano;
@@ -640,7 +646,48 @@ export class AgendaInstructorRapidaComponent implements OnInit, OnDestroy {
       });
     this.listObservers.push(load1$);
   }
+  getInstructores() {
+    this.acuService
+      .getInstructores()
+      .subscribe((instructores: Instructor[]) => {
+        // Assign the data to the data source for the table to render
+        this.instructoresSelect = instructores;
+        const inst = { EscInsId: 'Todas' };
+        this.instructoresSelect.unshift(inst);
+        this.instructorSeleccionado = 'Todas';
+      });
+  }
+  cambioUsuAsig(e: any) {
+    this.instructorSeleccionado = e.value;
+    this.verAgenda = false;
+    const strFecha = this.formatDateToString(this.fecha);
+    const instId = e.value.EscInsId;
+    //this.estadoSeleccionado = 'Todos';
 
+    const load1$ = this.acuService
+      .getAgendaPorFecha(strFecha, 'rapida', instId)
+      .subscribe((res: any) => {
+        this.agenda = res.TablaAgenda;
+        this.instructores = res.TablaAgenda.Instructores;
+        this.horas = res.TablaAgenda.Horas;
+
+        this.fechaClase = res.TablaAgenda.FechaClase;
+        this.columns = this.horas.map((item) => item.Hora.toString());
+        this.horaMovilPlano = res.TablaAgenda.HoraMovilPlano;
+        this.agendaDataSource = this.makeDataSource(
+          this.horas,
+          this.instructores
+        );
+
+        this.agendaDisplayedColumns = ['Instructor'];
+        this.agendaDisplayedColumns = this.agendaDisplayedColumns.concat(
+          this.columns
+        );
+
+        this.verAgenda = true;
+      });
+    this.listObservers.push(load1$);
+  }
   getPorcentaje = (hora: number) =>
     this.horas.find((h) => h.Hora === hora).HoraPorcentaje;
 

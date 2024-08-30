@@ -4,6 +4,7 @@ import { ClaseEstimada } from '@core/model/clase-estimada.model';
 import { environment } from '@environments/environment';
 import { formatDateToString } from '@utils/utils-functions';
 import { AutenticacionService } from './autenticacion.service';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',

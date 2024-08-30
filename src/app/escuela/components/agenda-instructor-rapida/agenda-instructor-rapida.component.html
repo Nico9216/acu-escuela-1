@@ -15,7 +15,7 @@
                 </div>
               </div>
             </div>
-            <div class="row" style="margin-left: 25px">
+            <!-- <div class="row" style="margin-left: 25px">
               <div class="col-xs">
                 <div class="box">
                   <mat-form-field class="full-width">
@@ -25,6 +25,25 @@
                     >
                       <mat-option *ngFor="let s of sedes" [value]="s">
                         {{ s }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div> -->
+            <div class="row" style="margin-left: 25px">
+              <div class="col-xs">
+                <div class="box">
+                  <mat-form-field class="full-width">
+                    <mat-select
+                      [value]="instructorSeleccionado"
+                      (selectionChange)="cambioUsuAsig($event)"
+                    >
+                      <mat-option
+                        *ngFor="let i of instructoresSelect"
+                        [value]="i"
+                      >
+                        {{ i.EscInsId }}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>

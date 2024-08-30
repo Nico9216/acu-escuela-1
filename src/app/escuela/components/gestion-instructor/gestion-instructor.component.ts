@@ -119,8 +119,6 @@ export class GestionInstructorComponent implements OnInit {
     this.instructorService
       .getInstructores()
       .subscribe((instructores: Instructor[]) => {
-        console.log(instructores);
-
         this.verInstructor = true;
         // Assign the data to the data source for the table to render
         this.instructores = instructores;

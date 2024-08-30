@@ -1,3 +1,4 @@
+import { Inscripcion } from '@core/model/inscripcion.model';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {
@@ -14,7 +15,6 @@ import {
   getDisponibilidadFromInscripcion,
   openSamePDF,
 } from '../../../utils/utils-functions';
-import { Inscripcion } from '../../../core/model/inscripcion.model';
 import { ClasesEstimadasComponent } from '../../components/modals/clases-estimadas/clases-estimadas.component';
 import { InscripcionService } from '@core/services/inscripcion.service';
 import { GestionInscripcionComponent } from '../../components/gestion-inscripcion/gestion-inscripcion.component';
@@ -205,7 +205,7 @@ export class GenerarNuevoPlanClasesComponent implements OnInit {
                       null,
                       null,
                       null,
-                      'wsPDFPlanDeClasesHasta5Clases'
+                      'wsPDFPlanDeClasesHasta5ClasesFromRegenerar'
                     )
                     .subscribe((pdf) => {
                       openSamePDF(pdf, 'PlanDeClases');
