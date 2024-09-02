@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="custom-table">
+      <ng-container matColumnDef="escinsid">
+        <th mat-header-cell *matHeaderCellDef>Instructor</th>
+        <td mat-cell *matCellDef="let instructor">{{ instructor.escinsid }}</td>
+      </ng-container>
+    
+      <ng-container matColumnDef="cantidadAlumnos">
+        <th mat-header-cell *matHeaderCellDef>cantidad de alumnos</th>
+        <td mat-cell *matCellDef="let alumnos" class="cantidad">{{ alumnos.cantidadAlumnos }}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</div>

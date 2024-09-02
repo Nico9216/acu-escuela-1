@@ -165,4 +165,12 @@ export class ReportesService {
         responseType: 'text',
       }
     );
+
+  getReporteAlumnosPorInstructor = () =>
+    this.http.get(
+      `${environment.url_Backend_Charp}/Instructor/ReporteAlumnoPorInstructor`,
+      // {
+      //   responseType: 'text',
+      // }
+    );
 }
