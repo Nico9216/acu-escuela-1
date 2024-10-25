@@ -31,7 +31,7 @@ export class SeleccionarAccionAgendaComponent {
   usuarioConPermiso: boolean = false;
   fechaAnteriorMaxima;
   private usuarioConPermisoNombre: string[] = [
-    'PARRECHE',
+    'AMACHIN',
     'VMARI',
     'RRUBIO',
     'NBENTOS',
