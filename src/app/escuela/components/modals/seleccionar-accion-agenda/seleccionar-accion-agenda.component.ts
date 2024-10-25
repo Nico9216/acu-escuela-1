@@ -33,8 +33,8 @@ export class SeleccionarAccionAgendaComponent {
   private usuarioConPermisoNombre: string[] = [
     'AMACHIN',
     'VMARI',
-    'RRUBIO',
     'NBENTOS',
+    'MNOGUERA'
   ]; //Solo este usuario podra mover y suspender clases de hasta 3 días pasados.
 
   constructor(
