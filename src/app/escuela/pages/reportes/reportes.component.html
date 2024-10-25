@@ -53,6 +53,9 @@
       <mat-button-toggle (click)="getReporteResultadoExamenes()">
         Resultado Examenes
       </mat-button-toggle>
+      <mat-button-toggle (click)="tipo = 'cantidad-alumnos-por-instructor'">
+        Cantidad de alumnos por instructor
+      </mat-button-toggle>
     </div>
   </div>
 </div>
@@ -90,6 +93,9 @@
         </div>
         <div *ngSwitchCase="'cantidad-clases-por-instructor'">
           <app-catidad-clases-por-instructor></app-catidad-clases-por-instructor>
+        </div>
+        <div *ngSwitchCase="'cantidad-alumnos-por-instructor'">
+          <app-cantidad-alumnos-por-instructor></app-cantidad-alumnos-por-instructor>
         </div>
         <div *ngSwitchDefault>
           <div class="row" style="margin-top: 20px">

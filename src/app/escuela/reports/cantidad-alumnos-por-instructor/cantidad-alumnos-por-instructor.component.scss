@@ -1,0 +1,19 @@
+.container {
+    width: 400px;
+  }
+  
+table {
+    width: 400px;
+
+}
+.custom-table {
+    width: 100%; /* Ajusta el ancho de la tabla */
+}
+  
+.custom-table .mat-header-cell, .custom-table .mat-cell {
+    width: 150px; /* Ajusta el ancho de las columnas */
+}
+
+.cantidad{
+    text-align: center;
+}
